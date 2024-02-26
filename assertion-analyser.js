@@ -1,4 +1,4 @@
-function objParser(str, init) {
+  function objParser(str, init) {
   // finds objects, arrays, strings, and function arguments
   // between parens, because they may contain ','
   const openSym = ["[", "{", '"', "'", "("];
@@ -90,8 +90,9 @@ function assertionAnalyser(body) {
   // match the METHODS
 
   let assertionBodies = [];
-  const methods = assertions.map(function (a, i) {
+  const methods = [...assertions].map(function (a, i) {
     const m = a.match(/^\s*\.\s*(\w+)__#(\d+)/);
+    console.log(m)
     assertionBodies.push(parseInt(m[2]));
     const pre = splittedAssertions[i].match(/browser\s*\.\s*/)
       ? "browser."
